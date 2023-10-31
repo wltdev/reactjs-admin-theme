@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sidebar as ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
+import { Sidebar as ProSidebar, Menu, MenuItem, sidebarClasses } from 'react-pro-sidebar';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { tokens } from '@/theme';
@@ -52,25 +52,27 @@ export const Sidebar = () => {
     return (
         <Box
             sx={{
-                '& .pro-sidebar-inner': {
+                '& .ps-sidebar-container': {
                     background: `${colors.primary[400]} !important`
                 },
-                '& .pro-icon-wrapper': {
+                '& .ps-menuitem-root': {
+                    // padding: '5px 35px 5px 20px !important'
+                },
+                '& .ps-menu-button:hover': {
+                    color: '#868dfb !important',
                     backgroundColor: 'transparent !important'
                 },
-                '& .pro-inner-item': {
-                    padding: '5px 35px 5px 20px !important'
+                '& .ps-menuitem-root .ps-active': {
+                    color: '#6870fa !important',
+                    fontWeight: 800
                 },
-                '& .pro-inner-item:hover': {
-                    color: '#868dfb !important'
-                },
-                '& .pro-menu-item.active': {
-                    color: '#6870fa !important'
+                '& .ps-sidebar-root': {
+                    border: 'none !important'
                 }
             }}
         >
             <ProSidebar collapsed={isCollapsed}>
-                <Menu iconShape="square">
+                <Menu>
                     {/* LOGO AND MENU ICON */}
                     <MenuItem
                         onClick={() => setIsCollapsed(!isCollapsed)}
@@ -83,7 +85,7 @@ export const Sidebar = () => {
                         {!isCollapsed && (
                             <Box display="flex" justifyContent="space-between" alignItems="center" ml="15px">
                                 <Typography variant="h3" color={colors.grey[100]}>
-                                    ADMINIS
+                                    WLTDEV
                                 </Typography>
                                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                                     <MenuOutlinedIcon />
@@ -100,15 +102,15 @@ export const Sidebar = () => {
                                     width="100px"
                                     height="100px"
                                     src={avatarImg}
-                                    style={{ cursor: 'pointer', borderRadius: '50%' }}
+                                    style={{ cursor: 'pointer', borderRadius: '50%', objectFit: 'cover' }}
                                 />
                             </Box>
                             <Box textAlign="center">
                                 <Typography variant="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: '10px 0 0 0' }}>
-                                    Ed Roh
+                                    Frederico
                                 </Typography>
                                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                                    VP Fancy Admin
+                                    Captain
                                 </Typography>
                             </Box>
                         </Box>
