@@ -1,6 +1,7 @@
 import { createContext, useState, useMemo } from 'react';
-import { createTheme } from '@mui/material/styles';
+
 import { PaletteMode } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
 
 // color design tokens export
 export const tokens = (mode: string) => ({
@@ -124,6 +125,7 @@ export const tokens = (mode: string) => ({
 // mui theme settings
 export const themeSettings = (mode: PaletteMode) => {
     const colors = tokens(mode);
+
     return {
         palette: {
             mode: mode,
