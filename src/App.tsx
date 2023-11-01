@@ -1,19 +1,21 @@
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import { ColorModeContext, useMode } from './theme';
-import { Topbar } from './components/layouts/global/Topbar';
 import { Route, Routes } from 'react-router-dom';
-import { Dashboard } from './pages/Dashboard';
-import { Team } from './pages/Team';
-import { Invoices } from './pages/Invoices';
-import { Contacts } from './pages/Contacts';
+
+import { CssBaseline, ThemeProvider } from '@mui/material';
+
+import { Sidebar } from './components/layouts/global/Sidebar';
+import { Topbar } from './components/layouts/global/Topbar';
 import { Bar } from './pages/Bar';
+import { Calendar } from './pages/Calendar';
+import { Contacts } from './pages/Contacts';
+import { Dashboard } from './pages/Dashboard';
+import { FAQ } from './pages/FAQ';
 import { Form } from './pages/Form';
+import { Geography } from './pages/Geography';
+import { Invoices } from './pages/Invoices';
 import { Line } from './pages/Line';
 import { Pie } from './pages/Pie';
-import { FAQ } from './pages/FAQ';
-import { Geography } from './pages/Geography';
-import { Calendar } from './pages/Calendar';
-import { Sidebar } from './components/layouts/global/Sidebar';
+import { Team } from './pages/Team';
+import { ColorModeContext, useMode } from './theme';
 
 function App() {
     const [theme, colorMode] = useMode();
