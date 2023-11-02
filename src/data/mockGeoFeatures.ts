@@ -1,4 +1,4 @@
-type Feature = {
+type GeoFeature = {
     type: string;
     id: string;
     properties: {
@@ -12,7 +12,7 @@ type Feature = {
 
 type Geo = {
     type: string;
-    features: Feature[];
+    features: GeoFeature[];
 };
 
 export const geoFeatures: Geo = {
