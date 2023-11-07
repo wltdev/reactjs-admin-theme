@@ -18,6 +18,7 @@ import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import avatarImg from '@/assets/avatar.jpg';
+import { useGlobal } from '@/context/GlobalContext';
 import { tokens } from '@/theme';
 
 import { SiderBarContainer, UserAvatar, UserName } from './styles';
@@ -51,12 +52,13 @@ const Item = ({ title, icon, selected, path, navigate }: ItemType) => {
 
 export const Sidebar = () => {
     const theme = useTheme();
+    const { state, dispatch } = useGlobal();
     const colors = tokens(theme.palette.mode);
-    const isNonMobile = useMediaQuery('(min-width:600px)');
+    // const isNonMobile = useMediaQuery('(min-width:600px)');
+
     const route = useLocation();
     const navigate = useNavigate();
 
-    const [isCollapsed, setIsCollapsed] = useState(!isNonMobile);
     const [selected, setSelected] = useState('/');
 
     const handleNavigate = (link: string) => {
@@ -64,46 +66,45 @@ export const Sidebar = () => {
         setSelected(link);
     };
 
+    const handleCollapse = () => {
+        dispatch({
+            type: 'SET_SIDEBAR_COLLAPSED',
+            payload: !state.sidebarCollapsed
+        });
+    };
+
     useEffect(() => {
         setSelected(route.pathname);
     }, []);
 
-    // useEffect(() => {
-    //     console.log(isNonMobile);
-    // }, [isNonMobile]);
-
     return (
-        <SiderBarContainer collapsed={isCollapsed} bgcolor={colors.primary[400]}>
+        <SiderBarContainer collapsed={state.sidebarCollapsed} bgcolor={colors.primary[400]}>
             <Menu>
                 {/* LOGO AND MENU ICON */}
                 <MenuItem
-                    onClick={() => setIsCollapsed(!isCollapsed)}
-                    icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
+                    onClick={handleCollapse}
                     style={{
                         margin: '10px 0 20px 0',
                         color: colors.grey[100]
                     }}
                 >
-                    {!isCollapsed && (
+                    {!state.sidebarCollapsed && (
                         <Box display="flex" justifyContent="space-between" alignItems="center" ml="15px">
                             <Typography variant="h3" color={colors.grey[100]}>
                                 WLTDEV
                             </Typography>
-                            <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                                <MenuOutlinedIcon />
-                            </IconButton>
                         </Box>
                     )}
                 </MenuItem>
 
                 <Box mb="25px">
                     <Box display="flex" justifyContent="center" alignItems="center">
-                        <UserAvatar alt="profile-user" src={avatarImg} isCollapsed={isCollapsed} />
+                        <UserAvatar alt="profile-user" src={avatarImg} isCollapsed={Boolean(state.sidebarCollapsed) ?? false} />
                     </Box>
                     <Box textAlign="center">
-                        {!isCollapsed && (
+                        {!state.sidebarCollapsed && (
                             <UserName
-                                isCollapsed={isCollapsed}
+                                isCollapsed={state.sidebarCollapsed}
                                 variant="h2"
                                 color={colors.grey[100]}
                                 fontWeight="bold"
@@ -112,18 +113,19 @@ export const Sidebar = () => {
                                 Frederico
                             </UserName>
                         )}
-                        <Typography variant="h5" mt={!isCollapsed ? '0' : '10px'} color={colors.greenAccent[500]}>
+                        <Typography variant="h5" mt={!state.sidebarCollapsed ? '0' : '10px'} color={colors.greenAccent[500]}>
                             Captain
                         </Typography>
                     </Box>
                 </Box>
 
-                <Box paddingLeft={isCollapsed ? undefined : '10%'}>
+                <Box paddingLeft={state.sidebarCollapsed ? undefined : '10%'}>
                     <Item title="Dashboard" path="/" navigate={handleNavigate} icon={<HomeOutlinedIcon />} selected={selected} />
 
                     <Typography variant="h6" color={colors.grey[300]} sx={{ m: '15px 0 5px 20px' }}>
                         Data
                     </Typography>
+
                     <Item title="Manage Team" navigate={handleNavigate} path="/team" icon={<PeopleOutlinedIcon />} selected={selected} />
                     <Item
                         title="Contacts Information"
@@ -143,6 +145,7 @@ export const Sidebar = () => {
                     <Typography variant="h6" color={colors.grey[300]} sx={{ m: '15px 0 5px 20px' }}>
                         Pages
                     </Typography>
+
                     <Item title="Profile Form" path="/form" navigate={handleNavigate} icon={<PersonOutlinedIcon />} selected={selected} />
                     <Item
                         title="Calendar"
@@ -156,6 +159,7 @@ export const Sidebar = () => {
                     <Typography variant="h6" color={colors.grey[300]} sx={{ m: '15px 0 5px 20px' }}>
                         Charts
                     </Typography>
+
                     <Item title="Bar Chart" path="/bar" navigate={handleNavigate} icon={<BarChartOutlinedIcon />} selected={selected} />
                     <Item
                         title="Pie Chart"
