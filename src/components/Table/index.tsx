@@ -30,7 +30,7 @@ export const Table: FC<Props> = ({ rows, columns, tollbar, checkboxSelection }) 
                     color: colors.greenAccent[300]
                 },
                 '& .MuiDataGrid-columnHeaders': {
-                    backgroundColor: colors.blueAccent[800],
+                    backgroundColor: colors.blueAccent[900],
                     borderBottom: 'none'
                 },
                 '& .MuiDataGrid-virtualScroller': {
@@ -38,7 +38,7 @@ export const Table: FC<Props> = ({ rows, columns, tollbar, checkboxSelection }) 
                 },
                 '& .MuiDataGrid-footerContainer': {
                     borderTop: 'none',
-                    backgroundColor: colors.blueAccent[800]
+                    backgroundColor: colors.primary[400]
                 },
                 '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
                     color: `${colors.grey[100]} !important`
