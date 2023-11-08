@@ -61,12 +61,19 @@ export const Container = styled.aside<ContainerProps>`
         margin: 40px 0 0 0;
         padding: 0;
         width: 100%;
+
+        hr {
+            border: 0;
+            height: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
     }
 `;
 
 type ItemProps = {
     color?: string;
-    activeColor?: string;
+    activecolor?: string;
     collapsed: boolean;
     bgcolor: string;
 };
@@ -125,33 +132,31 @@ export const Item = styled.li<ItemProps>`
             transition: all 0.3s ease;
 
             &.active {
-                color: ${({ activeColor }) => activeColor};
+                color: ${({ activecolor }) => activecolor};
             }
         }
     }
 
     .tooltip {
-        text-align: left;
         line-height: 12px;
         opacity: 0;
-        /* top: 50%; */
         margin-top: -26px;
         left: 62px;
         position: absolute;
         transition: all 0.3s ease;
         z-index: 9999;
-        color: ${({ activeColor }) => activeColor};
+        color: ${({ activecolor }) => activecolor};
         background-color: ${({ bgcolor }) => bgcolor};
         padding: 5px;
         border-radius: 8px;
     }
 
     &.active {
-        color: ${({ activeColor }) => activeColor};
+        color: ${({ activecolor }) => activecolor};
     }
 
     &:hover {
-        color: ${({ activeColor }) => activeColor};
+        color: ${({ activecolor }) => activecolor};
 
         .tooltip {
             opacity: ${({ collapsed }) => (collapsed ? 1 : 0)};
@@ -171,7 +176,7 @@ type PlatformNameProps = {
     color?: string;
 };
 
-export const PlatformLogo = styled.img<{ collapsed: boolean }>`
+export const PlatformLogo = styled.img`
     width: 40px;
     height: 40px;
 `;

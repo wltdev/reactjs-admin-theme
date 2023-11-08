@@ -5,7 +5,7 @@ type ItemType = {
     icon: React.ReactComponentElement<any>;
     selected: string;
     color?: string;
-    activeColor?: string;
+    activecolor?: string;
     bgcolor: string;
     path: string;
     collapsed: boolean;
@@ -13,12 +13,12 @@ type ItemType = {
     navigate: (link: string) => void;
 };
 
-export const MenuItem = ({ title, icon, selected, path, color, activeColor, collapsed, bgcolor, navigate }: ItemType) => {
+export const MenuItem = ({ title, icon, selected, path, color, activecolor, collapsed, bgcolor, navigate }: ItemType) => {
     return (
         <Item
             className={selected === path ? 'active' : ''}
             color={color}
-            activeColor={activeColor}
+            activecolor={activecolor}
             bgcolor={bgcolor}
             collapsed={collapsed}
             onClick={() => navigate(path)}

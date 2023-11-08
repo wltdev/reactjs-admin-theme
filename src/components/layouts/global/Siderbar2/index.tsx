@@ -139,14 +139,20 @@ export const Sidebar2 = () => {
                     <ul>
                         {DATA.map((item, index) => {
                             return (
-                                <>
+                                <div key={index}>
                                     {item.divider ? (
-                                        <Typography variant="h6" color={colors.grey[300]} sx={{ m: '15px 0 5px 0' }}>
-                                            {item.divider}
-                                        </Typography>
+                                        <>
+                                            <Typography
+                                                variant="h6"
+                                                color={colors.grey[300]}
+                                                sx={{ m: '15px 0 5px 0', fontSize: '0.7rem' }}
+                                            >
+                                                {item.divider}
+                                            </Typography>
+                                            {/* <hr /> */}
+                                        </>
                                     ) : (
                                         <MenuItem
-                                            key={index}
                                             title={String(item.title)}
                                             icon={item.icon ?? <></>}
                                             path={String(item.path)}
@@ -154,11 +160,11 @@ export const Sidebar2 = () => {
                                             navigate={handleNavigate}
                                             selected={selected}
                                             color={colors.grey[400]}
-                                            activeColor={colors.grey[100]}
+                                            activecolor={colors.grey[100] ?? '#fff'}
                                             bgcolor={colors.primary[400]}
                                         />
                                     )}
-                                </>
+                                </div>
                             );
                         })}
                     </ul>
