@@ -68,12 +68,13 @@ type ItemProps = {
     color?: string;
     activeColor?: string;
     collapsed: boolean;
+    bgcolor: string;
 };
 
 export const Item = styled.li<ItemProps>`
-    margin-top: 1rem;
+    margin-top: 1.3rem;
     padding: 0.4rem;
-    position: relative;
+    /* position: relative; */
     list-style: none;
     font-size: 14px;
 
@@ -129,12 +130,32 @@ export const Item = styled.li<ItemProps>`
         }
     }
 
+    .tooltip {
+        text-align: left;
+        line-height: 12px;
+        opacity: 0;
+        /* top: 50%; */
+        margin-top: -26px;
+        left: 62px;
+        position: absolute;
+        transition: all 0.3s ease;
+        z-index: 9999;
+        color: ${({ activeColor }) => activeColor};
+        background-color: ${({ bgcolor }) => bgcolor};
+        padding: 5px;
+        border-radius: 8px;
+    }
+
     &.active {
         color: ${({ activeColor }) => activeColor};
     }
 
     &:hover {
         color: ${({ activeColor }) => activeColor};
+
+        .tooltip {
+            opacity: ${({ collapsed }) => (collapsed ? 1 : 0)};
+        }
     }
 `;
 

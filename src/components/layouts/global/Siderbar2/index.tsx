@@ -155,6 +155,7 @@ export const Sidebar2 = () => {
                                             selected={selected}
                                             color={colors.grey[400]}
                                             activeColor={colors.grey[100]}
+                                            bgcolor={colors.primary[400]}
                                         />
                                     )}
                                 </>
