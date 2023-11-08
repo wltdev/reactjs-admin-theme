@@ -57,7 +57,7 @@ export const Contacts = () => {
     ];
 
     return (
-        <Box m="20px">
+        <Box m="50px 20px">
             <Header title="Contacts" subtitle="Managing the Contacts" />
 
             <Table rows={mockDataContacts} columns={columns} tollbar />

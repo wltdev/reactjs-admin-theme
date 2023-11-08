@@ -15,11 +15,12 @@ import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 
+import logoImg from '@/assets/logo.png';
 import { useGlobal } from '@/context/GlobalContext';
 import { tokens } from '@/theme';
 
 import { MenuItem } from './MenuItem';
-import { Container, EnterpriseLogo, EnterpriseName, LogoWrapper, Overlay, PlatformName } from './styles';
+import { Container, EnterpriseLogo, EnterpriseName, LogoWrapper, Overlay, PlatformLogo, PlatformName } from './styles';
 
 const DATA = [
     {
@@ -130,21 +131,10 @@ export const Sidebar2 = () => {
             <Container bgcolor={colors.primary[400]} color={colors.grey[100]} collapsed={state.sidebarCollapsed}>
                 <nav>
                     <LogoWrapper>
+                        <PlatformLogo src={logoImg} alt="Logo" collapsed={state.sidebarCollapsed} />
                         <PlatformName color={colors.grey[100]} collapsed={state.sidebarCollapsed}>
                             WLTDEV
                         </PlatformName>
-
-                        {/* <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" sx={{ minHeight: 100 }}>
-                            <EnterpriseLogo
-                                src="https://www.strunkmedia.com/wp-content/uploads/2018/05/bigstock-Print-163213010.png"
-                                alt="Logo"
-                                collapsed={state.sidebarCollapsed}
-                            />
-                            <EnterpriseName color={colors.grey[100]} collapsed={state.sidebarCollapsed}>
-                                Strunk Media
-                            </EnterpriseName>
-                        </Box> */}
-                        {/* {} */}
                     </LogoWrapper>
                     <ul>
                         {DATA.map((item, index) => {
@@ -163,8 +153,8 @@ export const Sidebar2 = () => {
                                             collapsed={state.sidebarCollapsed}
                                             navigate={handleNavigate}
                                             selected={selected}
-                                            color={colors.grey[100]}
-                                            activeColor={colors.greenAccent[500]}
+                                            color={colors.grey[400]}
+                                            activeColor={colors.grey[100]}
                                         />
                                     )}
                                 </>

@@ -40,7 +40,7 @@ export const Calendar = () => {
     };
 
     return (
-        <Box m="20px">
+        <Box m="50px 20px">
             <Header title="Calendar" subtitle="Full Calendar Interactive Page" />
 
             <Box display="flex" justifyContent="space-between">
@@ -50,7 +50,7 @@ export const Calendar = () => {
                         {currentEvents.map((event: CalendarEvent) => (
                             <ListItem
                                 key={event.id}
-                                sx={{ backgroundColor: colors.greenAccent[500], margin: '10px 0', borderRadius: '2px' }}
+                                sx={{ backgroundColor: colors.blueAccent[400], margin: '10px 0', borderRadius: '2px' }}
                             >
                                 <ListItemText
                                     primary={event.title}

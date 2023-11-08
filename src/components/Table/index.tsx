@@ -27,7 +27,7 @@ export const Table: FC<Props> = ({ rows, columns, tollbar, checkboxSelection }) 
                     borderBottom: 'none'
                 },
                 '& .name-column--cell': {
-                    color: colors.greenAccent[300]
+                    color: colors.grey[100]
                 },
                 '& .MuiDataGrid-columnHeaders': {
                     backgroundColor: colors.blueAccent[900],
@@ -44,7 +44,7 @@ export const Table: FC<Props> = ({ rows, columns, tollbar, checkboxSelection }) 
                     color: `${colors.grey[100]} !important`
                 },
                 '& .MuiCheckbox-root': {
-                    color: `${colors.greenAccent[200]} !important`
+                    color: `${colors.grey[200]} !important`
                 }
             }}
         >

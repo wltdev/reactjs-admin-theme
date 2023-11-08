@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import { Box, Button, TextField } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+import { CButton } from '@/components/CButton';
 import { FormErrorMessage } from '@/components/Forms/FormErrorMessage';
 import { Header } from '@/components/Header';
 import { User } from '@/domain/interfaces/User';
@@ -38,7 +39,7 @@ export const Form = () => {
     const onSubmit: SubmitHandler<User> = (data) => console.log(data);
 
     return (
-        <Box m="20px">
+        <Box m="50px 20px">
             <Header title="Create User" subtitle="Create a new user profile" />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box
@@ -94,9 +95,7 @@ export const Form = () => {
                     />
                 </Box>
                 <Box display={'flex'} justifyContent={'end'} mt="20px">
-                    <Button type="submit" color="secondary" variant="contained">
-                        Create new User
-                    </Button>
+                    <CButton title="Save User" />
                 </Box>
             </form>
         </Box>

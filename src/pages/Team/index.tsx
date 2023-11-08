@@ -52,7 +52,7 @@ export const Team = () => {
                         display="flex"
                         justifyContent="center"
                         borderRadius="4px"
-                        sx={{ backgroundColor: access === 'admin' ? colors.greenAccent[600] : colors.greenAccent[700] }}
+                        sx={{ backgroundColor: access === 'admin' ? colors.blueAccent[400] : colors.blueAccent[700] }}
                     >
                         {access === 'admin' && <AdminPanelSettingsOutlinedIcon />}
                         {access === 'manager' && <SecurityOutlinedIcon />}
@@ -67,7 +67,7 @@ export const Team = () => {
     ];
 
     return (
-        <Box m="20px">
+        <Box m="50px 20px">
             <Header title="Team" subtitle="Managing the Team Members" />
 
             <Table rows={mockDataTeam} columns={columns} />

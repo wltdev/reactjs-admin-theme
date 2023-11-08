@@ -6,7 +6,7 @@ import { mockLineData } from '@/data/mockData';
 
 export const Line = () => {
     return (
-        <Box m="20px">
+        <Box m="50px 20px">
             <Header title="Line Chart" subtitle="Simple Line Chart" />
             <Box height="75vh">
                 <LineChart data={mockLineData} />

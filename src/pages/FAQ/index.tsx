@@ -9,7 +9,7 @@ export const FAQ = () => {
     const colors = tokens(theme.palette.mode);
 
     return (
-        <Box m="20px">
+        <Box m="50px 20px">
             <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
             <Box m="40px 0 0 0" display={'flex'} flexDirection="column" gap={1}>
                 <Accordion defaultExpanded>

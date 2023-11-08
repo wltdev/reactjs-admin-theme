@@ -5,6 +5,7 @@ import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import TrafficIcon from '@mui/icons-material/Traffic';
 import { Box, Button, IconButton, Typography, useTheme } from '@mui/material';
 
+import { CButton } from '@/components/CButton';
 import { BarChart } from '@/components/Charts/BarChart';
 import { GeographyChart } from '@/components/Charts/GeographyChart';
 import { LineChart } from '@/components/Charts/LineChart';
@@ -22,22 +23,11 @@ export const Dashboard = () => {
     const colors = tokens(theme.palette.mode);
 
     return (
-        <Box m="20px">
+        <Box m="50px 20px">
             <Box display="flex" justifyContent="space-between" alignItems="center">
                 <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
                 <Box>
-                    <Button
-                        sx={{
-                            backgroundColor: colors.blueAccent[700],
-                            color: colors.grey[100],
-                            fontSize: '14px',
-                            fontWeight: 'bold',
-                            padding: '10px 20px'
-                        }}
-                    >
-                        <DownloadOutlinedIcon sx={{ mr: '10px' }} />
-                        Download Reports
-                    </Button>
+                    <CButton title="Download Reports" leftIcon={<DownloadOutlinedIcon />} />
                 </Box>
             </Box>
 
@@ -50,8 +40,8 @@ export const Dashboard = () => {
                         title="12,361"
                         subtitle="Emails Sent"
                         progress={0.75}
-                        increase="+14%"
-                        icon={<EmailIcon sx={{ color: colors.greenAccent[600], fontSize: '26px' }} />}
+                        increase="+75%"
+                        icon={<EmailIcon sx={{ color: colors.grey[200], fontSize: '26px' }} />}
                     />
                 </Box>
 
@@ -60,8 +50,8 @@ export const Dashboard = () => {
                         title="431,361"
                         subtitle="Sales Obtained"
                         progress={0.5}
-                        increase="+21%"
-                        icon={<PointOfSaleIcon sx={{ color: colors.greenAccent[600], fontSize: '26px' }} />}
+                        increase="+50%"
+                        icon={<PointOfSaleIcon sx={{ color: colors.grey[100], fontSize: '26px' }} />}
                     />
                 </Box>
 
@@ -70,8 +60,8 @@ export const Dashboard = () => {
                         title="32,15"
                         subtitle="New Clientes"
                         progress={0.3}
-                        increase="+5%"
-                        icon={<PersonAddIcon sx={{ color: colors.greenAccent[600], fontSize: '26px' }} />}
+                        increase="+30%"
+                        icon={<PersonAddIcon sx={{ color: colors.grey[100], fontSize: '26px' }} />}
                     />
                 </Box>
 
@@ -80,8 +70,8 @@ export const Dashboard = () => {
                         title="1,352,361"
                         subtitle="Traffic Received"
                         progress={0.8}
-                        increase="+43%"
-                        icon={<TrafficIcon sx={{ color: colors.greenAccent[600], fontSize: '26px' }} />}
+                        increase="+80%"
+                        icon={<TrafficIcon sx={{ color: colors.grey[100], fontSize: '26px' }} />}
                     />
                 </Box>
 
@@ -93,13 +83,13 @@ export const Dashboard = () => {
                             <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
                                 Revenue Generated
                             </Typography>
-                            <Typography variant="h3" fontWeight="bold" color={colors.greenAccent[500]}>
+                            <Typography variant="h3" fontWeight="bold" color={colors.grey[200]}>
                                 $59,342.32
                             </Typography>
                         </Box>
                         <Box>
                             <IconButton>
-                                <DownloadOutlinedIcon sx={{ fontSize: '26px', color: colors.greenAccent[500] }} />
+                                <DownloadOutlinedIcon sx={{ fontSize: '26px', color: colors.grey[100] }} />
                             </IconButton>
                         </Box>
                     </Box>
@@ -131,13 +121,13 @@ export const Dashboard = () => {
                             p="15px"
                         >
                             <Box>
-                                <Typography color={colors.greenAccent[500]} variant="h5" fontWeight="600">
+                                <Typography color={colors.blueAccent[400]} variant="h5" fontWeight="600">
                                     {transaction.txId}
                                 </Typography>
                                 <Typography color={colors.grey[100]}>{transaction.user}</Typography>
                             </Box>
                             <Box color={colors.grey[100]}>{transaction.date}</Box>
-                            <Box sx={{ backgroundColor: colors.greenAccent[500] }} p="5px 10px" borderRadius="4px">
+                            <Box sx={{ backgroundColor: colors.blueAccent[400] }} p="5px 10px" borderRadius="4px">
                                 {transaction.cost}
                             </Box>
                         </Box>
@@ -150,7 +140,7 @@ export const Dashboard = () => {
                         Campaign
                     </Typography>
                     <Box display="flex" flexDirection="column" alignItems="center" mt="25px">
-                        <ProgressCircle size={125} />
+                        <ProgressCircle size={125} progress={0.48} />
                         <Typography variant="h5" color={colors.greenAccent[500]} sx={{ mt: '15px' }}>
                             $48,352 revenue generated
                         </Typography>

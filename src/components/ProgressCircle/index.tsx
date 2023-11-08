@@ -18,8 +18,8 @@ export const ProgressCircle: FC<Props> = ({ progress = 0.75, size = 40 }) => {
             sx={{
                 background: `
                     radial-gradient(${colors.primary[400]} 55%, transparent 56%), 
-                    conic-gradient(transparent 0deg ${angles}deg, ${colors.blueAccent[500]} ${angles}deg 360deg), 
-                    ${colors.greenAccent[500]}
+                    conic-gradient(transparent 0deg ${angles}deg, ${colors.grey[400]} ${angles}deg 360deg), 
+                    ${colors.blueAccent[400]}
                 `,
                 borderRadius: '50%',
                 width: `${size}px`,

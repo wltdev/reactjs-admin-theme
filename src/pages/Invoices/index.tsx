@@ -42,7 +42,7 @@ export const Invoices = () => {
     ];
 
     return (
-        <Box m="20px">
+        <Box m="50px 20px">
             <Header title="Invoices" subtitle="List of Invoices" />
 
             <Table rows={mockDataInvoices} columns={columns} tollbar checkboxSelection />

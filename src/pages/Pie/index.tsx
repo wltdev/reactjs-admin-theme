@@ -6,7 +6,7 @@ import { mockPieData } from '@/data/mockData';
 
 export const Pie = () => {
     return (
-        <Box m="20px">
+        <Box m="50px 20px">
             <Header title="Pie Chart" subtitle="Simple Pie Chart" />
             <Box height="75vh">
                 <PieChart data={mockPieData} />
