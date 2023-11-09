@@ -8,6 +8,7 @@ import { Form } from '@/pages/Form';
 import { Geography } from '@/pages/Geography';
 import { Invoices } from '@/pages/Invoices';
 import { Line } from '@/pages/Line';
+import { NotFound } from '@/pages/NotFound';
 import { Pie } from '@/pages/Pie';
 import { Team } from '@/pages/Team';
 
@@ -76,6 +77,10 @@ export const AppRoutes = {
         {
             path: '/calendar',
             element: <Calendar />
+        },
+        {
+            path: '*',
+            element: <NotFound />
         }
     ]
 };

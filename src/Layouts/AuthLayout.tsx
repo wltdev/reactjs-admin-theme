@@ -5,10 +5,8 @@ import { LoadingComponent } from '@/components/LoadingComponent';
 
 export const AuthLayout = () => {
     return (
-        <div>
-            <React.Suspense fallback={<LoadingComponent fullSize />}>
-                <Outlet />
-            </React.Suspense>
-        </div>
+        <React.Suspense fallback={<LoadingComponent fullSize />}>
+            <Outlet />
+        </React.Suspense>
     );
 };

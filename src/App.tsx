@@ -10,9 +10,9 @@ import { ColorModeContext, useMode } from './theme';
 
 function App() {
     const navigate = useNavigate();
-    const [theme, colorMode] = useMode();
+    const [theme, colorMode] = useMode() as any;
     const [isLoading, setIsLoading] = useState(true);
-    const [isLogged, setIslogged] = useState(true);
+    const [isLogged, setIslogged] = useState(false);
 
     useEffect(() => {
         setTimeout(() => {
