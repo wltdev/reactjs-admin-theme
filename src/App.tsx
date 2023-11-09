@@ -5,21 +5,27 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import { LoadingComponent } from './components/LoadingComponent';
 import { AppContextProvider } from './context/AppContext';
+import { SET_LOGIN, useAuth } from './context/AuthContext';
 import { Routes } from './routes';
 import { ColorModeContext, useMode } from './theme';
 
 function App() {
     const navigate = useNavigate();
     const [theme, colorMode] = useMode() as any;
+    const { state, dispatch } = useAuth();
+
     const [isLoading, setIsLoading] = useState(true);
-    const [isLogged, setIslogged] = useState(false);
 
     useEffect(() => {
         setTimeout(() => {
-            if (!isLogged) {
+            const user = JSON.parse(localStorage.getItem('user') as any);
+            if (!user) {
                 navigate('/login');
             } else {
-                navigate('/');
+                dispatch({
+                    type: SET_LOGIN,
+                    payload: user
+                });
             }
             setIsLoading(false);
         }, 2000);

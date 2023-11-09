@@ -1,6 +1,5 @@
 import { FC } from 'react';
-
-import { CircularProgress } from '@mui/material';
+import { FingerprintSpinner } from 'react-epic-spinners';
 
 import logoImg from '@/assets/logo.png';
 
@@ -12,9 +11,12 @@ type Props = {
 };
 export const LoadingComponent: FC<Props> = ({ fullSize = false, hideLogo }) => {
     return (
-        <Container fullSize={fullSize}>
-            {!hideLogo && <Logo src={logoImg} />}
-            <CircularProgress />
-        </Container>
+        <>
+            <Container fullSize={fullSize}>
+                {/* {!hideLogo && <Logo src={logoImg} />} */}
+                <FingerprintSpinner color={'#6261E5'} size={150} />
+                <span>Loading...</span>
+            </Container>
+        </>
     );
 };

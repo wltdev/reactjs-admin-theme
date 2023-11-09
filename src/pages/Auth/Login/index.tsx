@@ -1,11 +1,13 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import * as yup from 'yup';
 
-import { Box, Button, TextField, useMediaQuery } from '@mui/material';
+import { TextField } from '@mui/material';
 
 import logoImg from '@/assets/logo.png';
 import { FormErrorMessage } from '@/components/Forms/FormErrorMessage';
+import { SET_LOGIN, useAuth } from '@/context/AuthContext';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { CButton, Container, FormWrapper, ImageWrapper, Logo, LogoWrapper } from './styles';
@@ -18,7 +20,8 @@ const schema = yup
     .required();
 
 export const Login = () => {
-    const isNonMobile = useMediaQuery('(min-width:600px)');
+    const { dispatch } = useAuth();
+    const navigate = useNavigate();
 
     const {
         register,
@@ -33,7 +36,15 @@ export const Login = () => {
         resolver: yupResolver(schema)
     });
 
-    const onSubmit: SubmitHandler<{ email: string; password: string }> = (data) => console.log(data);
+    const onSubmit: SubmitHandler<{ email: string; password: string }> = (data) => {
+        localStorage.setItem('user', JSON.stringify(data));
+
+        dispatch({
+            type: SET_LOGIN,
+            payload: data
+        });
+        navigate('/');
+    };
 
     return (
         <Container>
@@ -46,6 +57,7 @@ export const Login = () => {
 
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h3>LogIn</h3>
+
                         <TextField
                             fullWidth
                             variant="outlined"

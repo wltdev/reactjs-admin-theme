@@ -4,7 +4,7 @@ html,
 body,
 #root,
 .content {
-    height: 100vh;
+    /* height: 100vh; */
     font-family: 'Source Sans 3', sans-serif;
 }
 
@@ -20,7 +20,6 @@ body,
 
 .app {
     display: flex;
-    /* position: relative; */
     height: 100%;
 }
 
