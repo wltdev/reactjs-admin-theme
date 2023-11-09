@@ -1,6 +1,9 @@
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+
 import { Sidebar2 } from '@/components/layouts/global/Siderbar2';
 import { Topbar } from '@/components/layouts/global/Topbar';
-import { AppRoutes } from '@/routes/AppRoutes';
+import { LoadingComponent } from '@/components/LoadingComponent';
 
 export const AppLayout = () => {
     return (
@@ -9,7 +12,9 @@ export const AppLayout = () => {
             <main className="content">
                 <Topbar />
                 <div className="page">
-                    <AppRoutes />
+                    <React.Suspense fallback={<LoadingComponent />}>
+                        <Outlet />
+                    </React.Suspense>
                 </div>
             </main>
         </div>

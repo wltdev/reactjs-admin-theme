@@ -1,3 +1,13 @@
-export const AuthRoutes = () => {
-    return <h1>Auth Routes</h1>;
+import { AuthLayout } from '@/Layouts/AuthLayout';
+import { Login } from '@/pages/Auth/Login';
+
+export const AuthRoutes = {
+    path: '/',
+    element: <AuthLayout />,
+    children: [
+        {
+            path: '/login',
+            element: <Login />
+        }
+    ]
 };

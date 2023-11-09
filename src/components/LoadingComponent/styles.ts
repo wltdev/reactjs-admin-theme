@@ -13,3 +13,8 @@ export const Container = styled.div<ContainerProps>`
     color: var(--color-secondary);
     gap: 16px;
 `;
+
+export const Logo = styled.img`
+    width: 100px;
+    height: 100px;
+`;

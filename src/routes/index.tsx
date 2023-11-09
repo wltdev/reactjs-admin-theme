@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useRoutes } from 'react-router-dom';
+
+import config from '@/utils/application';
 
 import { AppRoutes } from './AppRoutes';
 import { AuthRoutes } from './AuthRoutes';
 
 export const Routes = () => {
-    const [isLogged, setIslogged] = useState(true);
+    let routes = [AppRoutes, AuthRoutes];
 
-    return <>{isLogged ? <AppRoutes /> : <AuthRoutes />}</>;
+    return useRoutes(routes, config.basename);
 };
